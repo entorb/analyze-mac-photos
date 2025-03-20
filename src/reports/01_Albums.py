@@ -10,18 +10,6 @@ logger = get_logger_from_filename(__file__)
 st.title(__doc__[:-1])  # type: ignore
 
 
-# def get_folders_v1() -> pd.DataFrame:
-#     """
-#     Return DataFrame of all folders.
-
-#     Problem: only returning root folders
-#     """
-#     db = get_photos_db()
-#     data = [(f.title, f.parent) for f in db.folder_info]
-#     df = pd.DataFrame(data, columns=("title", "parent"))
-#     return df.sort_values(["parent", "title"])
-
-
 @st.cache_data(ttl="2h")
 def get_folders() -> list[str]:
     """
@@ -51,7 +39,6 @@ def get_albums(
             continue
         cnt_photos = len(a.photos)
         size = int(round(sum(p.original_filesize for p in a.photos) / 1048576, 0))
-        # size = int(bitmath.Byte(size).MiB)
         data.append(
             (
                 a.title,
@@ -70,8 +57,6 @@ def get_albums(
 col1, col2 = st.columns((1, 1))
 sel_folders_in = col1.multiselect(label="Folder Include", options=get_folders())
 sel_folders_ex = col2.multiselect(label="Folder Exclude", options=get_folders())
-# sel_folder = col1.selectbox(label="Folder", options=get_folders(), index=None)
-
 
 df = get_albums(folders_in=sel_folders_in, folders_ex=sel_folders_ex)
 db_photo_cnt, db_size_mb = get_db_size()

@@ -1,4 +1,4 @@
-"""Photo."""
+"""Photos."""
 
 import osxphotos
 import pandas as pd
