@@ -70,8 +70,6 @@ def get_albums(
 col1, col2 = st.columns((1, 1))
 sel_folders_in = col1.multiselect(label="Folder Include", options=get_folders())
 sel_folders_ex = col2.multiselect(label="Folder Exclude", options=get_folders())
-# sel_folder = col1.selectbox(label="Folder", options=get_folders(), index=None)
-
 
 df = get_albums(folders_in=sel_folders_in, folders_ex=sel_folders_ex)
 db_photo_cnt, db_size_mb = get_db_size()
