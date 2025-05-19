@@ -29,3 +29,7 @@ pre-commit run --all-files
 ### Config
 
 see [.streamlit/config.toml](.streamlit/config.toml)
+
+## SonarQube Code Analysis
+
+At [sonarcloud.io](https://sonarcloud.io/summary/overall?id=entorb_analyze-mac-photos&branch=main)
