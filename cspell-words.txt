@@ -1,0 +1,10 @@
+# CSpell Custom Dictionary Words
+bitmath
+DataFrame
+osxphotos
+selectbox
+SonarCloud
+SonarQube
+Streamlit
+Torben
+Menke
