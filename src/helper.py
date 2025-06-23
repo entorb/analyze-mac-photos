@@ -1,5 +1,4 @@
 """Helper functions."""
-# ruff: noqa: INP001
 
 import datetime as dt
 from logging import Logger
