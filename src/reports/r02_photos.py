@@ -66,7 +66,7 @@ df = get_photos_no_album(weeks=weeks)
 st.dataframe(
     df,
     hide_index=True,
-    use_container_width=True,
+    width="stretch",
     column_config={
         "Date": TABLE_FORMAT_DATETIME,
         "MB": st.column_config.NumberColumn(format="%.1f"),
@@ -80,7 +80,7 @@ df = df.reset_index().sort_values("Date", ascending=False)
 st.dataframe(
     df,
     hide_index=True,
-    use_container_width=False,
+    width="content",
     column_config={"Date": TABLE_FORMAT_DATE},
 )
 
@@ -89,7 +89,7 @@ df = get_photos_large(weeks=weeks, mb=50)
 st.dataframe(
     df,
     hide_index=True,
-    use_container_width=True,
+    width="stretch",
     column_config={
         "Date": TABLE_FORMAT_DATETIME,
         "MB": st.column_config.ProgressColumn(

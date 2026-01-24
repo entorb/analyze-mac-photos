@@ -63,7 +63,7 @@ db_photo_cnt, db_size_mb = get_db_size()
 st.dataframe(
     df,
     hide_index=True,
-    use_container_width=True,
+    width="stretch",
     column_config={
         "Count": st.column_config.ProgressColumn(
             format="%d", max_value=int(df["Count"].max())
