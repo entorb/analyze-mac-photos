@@ -29,15 +29,18 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version-file: ".python-version"
-          # here no pip cache needed, if no packages installed
-          # pre-commit has its own cache
-          # cache: "pip"
+          cache: "pip"
 
-      # - name: Install dependencies
-      #   if: ${{ hashFiles('requirements.txt') != '' }}
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install -r requirements.txt
+      - name: Install dependencies
+        if: ${{ hashFiles('requirements.txt') != '' }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Ruff
+        run: |
+          ruff format
+          ruff check --fix
 
       # - name: Run pytest unittests
       #   run: |

@@ -12,6 +12,8 @@ powered by [osxphotos](https://github.com/RhetTbull/osxphotos) and [Streamlit](h
 
 ## Repo Setup
 
+Note: Migration from pip to UV failed with: `ModuleNotFoundError: No module named 'pkg_resources'`
+
 ### Install
 
 see [install.sh](scripts/install.sh)
