@@ -1,12 +1,15 @@
 """Helper functions."""
 
 import datetime as dt
-from logging import Logger
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import osxphotos
 import streamlit as st
 from streamlit.logger import get_logger
+
+if TYPE_CHECKING:
+    from logging import Logger
 
 
 def get_logger_from_filename(file: str) -> Logger:
