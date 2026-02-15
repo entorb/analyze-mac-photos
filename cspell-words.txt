@@ -1,10 +1,10 @@
 # CSpell Custom Dictionary Words
 bitmath
 DataFrame
+Menke
 osxphotos
 selectbox
 SonarCloud
 SonarQube
 Streamlit
 Torben
-Menke

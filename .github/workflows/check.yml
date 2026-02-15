@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           persist-credentials: false
-          fetch-depth: 1 # 0 if you want to push to repo
+          fetch-depth: 1 # latest only
 
       - name: Python set up
         uses: actions/setup-python@v6
@@ -39,13 +39,22 @@ jobs:
 
       - name: Run Ruff
         run: |
-          ruff format
-          ruff check --fix
+          ruff format --check
+          ruff check --no-fix --output-format=github
 
       # - name: Run pytest unittests
       #   run: |
-      #     pip install pytest
-      #     pytest
+      #     pip install pytest pytest-cov
+      #     pytest \
+      #       --cov \
+      #       --cov-report=term-missing \
+      #       --cov-report=xml:coverage.xml
 
       - name: Run pre-commit hooks
         uses: pre-commit/action@v3.0.1
+
+      # # for SonarQube coverage report
+      # - name: SonarQube Scan
+      #   uses: SonarSource/sonarqube-scan-action@v7
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
